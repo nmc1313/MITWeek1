@@ -1,0 +1,41 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+//in div we added id = "ball" for easy callback
+
+var velocity = 5;
+var position = 0;
+var reverse = false;
+var ball = document.getElementById('ball');
+
+// move ball, add edge detection so that ball stays on pg
+
+function moveBall(){
+if(!reverse){
+    position = position + velocity; 
+    ball.style.left = position + "px";
+    return position;
+}
+else {
+  position = position - velocity; 
+  ball.style.left = position + "px";
+  return position;
+}
+
+if(position > 500 || position == 0){
+  reverse = !reverse;
+}
+}
+
+setInterval(moveBall, 1);
+
+
+</script>
